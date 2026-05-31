@@ -1,8 +1,7 @@
+#include "reconcile/record.hpp"
 #include "reconcile/schema.hpp"
 
 #include <gtest/gtest.h>
-
-#include "reconcile/record.hpp"
 
 namespace {
 
@@ -17,7 +16,7 @@ reconcile::InventoryRecord valid_record() {
     return record;
 }
 
-}  // namespace
+} // namespace
 
 TEST(Schema, ValidRecordHasNoViolations) {
     const reconcile::SchemaValidator validator;
@@ -32,7 +31,7 @@ TEST(Schema, EmptySkuIsRejected) {
 }
 
 TEST(Schema, ReportsAllViolationsNotJustFirst) {
-    reconcile::InventoryRecord record;  // empty sku/location/source, unknown unit
+    reconcile::InventoryRecord record; // empty sku/location/source, unknown unit
     record.quantity = -1;
     const reconcile::SchemaValidator validator;
     EXPECT_EQ(validator.validate(record).size(), 5U);

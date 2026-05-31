@@ -40,6 +40,6 @@ private:
     std::uint64_t next_sequence_{1};
 };
 
-}  // namespace reconcile
+} // namespace reconcile
 
-#endif  // RECONCILE_AUDIT_LOG_HPP
+#endif // RECONCILE_AUDIT_LOG_HPP

@@ -11,14 +11,14 @@ enum class Unit { Each, Box, Pallet, Unknown };
 
 [[nodiscard]] inline std::string to_string(Unit unit) {
     switch (unit) {
-        case Unit::Each:
-            return "EACH";
-        case Unit::Box:
-            return "BOX";
-        case Unit::Pallet:
-            return "PALLET";
-        case Unit::Unknown:
-            return "UNKNOWN";
+    case Unit::Each:
+        return "EACH";
+    case Unit::Box:
+        return "BOX";
+    case Unit::Pallet:
+        return "PALLET";
+    case Unit::Unknown:
+        return "UNKNOWN";
     }
     return "UNKNOWN";
 }
@@ -43,10 +43,10 @@ struct InventoryRecord {
     Unit unit{Unit::Unknown};
     std::string location;
     std::string source;
-    std::int64_t version{0};   // higher wins on conflict
+    std::int64_t version{0}; // higher wins on conflict
     std::uint32_t checksum{0};
 };
 
-}  // namespace reconcile
+} // namespace reconcile
 
-#endif  // RECONCILE_RECORD_HPP
+#endif // RECONCILE_RECORD_HPP

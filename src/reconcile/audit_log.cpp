@@ -4,14 +4,14 @@ namespace reconcile {
 
 std::string to_string(AuditAction action) {
     switch (action) {
-        case AuditAction::Accepted:
-            return "ACCEPTED";
-        case AuditAction::Rejected:
-            return "REJECTED";
-        case AuditAction::Superseded:
-            return "SUPERSEDED";
-        case AuditAction::Won:
-            return "WON";
+    case AuditAction::Accepted:
+        return "ACCEPTED";
+    case AuditAction::Rejected:
+        return "REJECTED";
+    case AuditAction::Superseded:
+        return "SUPERSEDED";
+    case AuditAction::Won:
+        return "WON";
     }
     return "UNKNOWN";
 }
@@ -53,4 +53,4 @@ std::string AuditLog::replay() const {
     return output;
 }
 
-}  // namespace reconcile
+} // namespace reconcile

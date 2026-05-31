@@ -1,14 +1,12 @@
-#include "reconcile/reconciler.hpp"
-
-#include <gtest/gtest.h>
-
-#include <cstdint>
-#include <string>
-#include <vector>
-
 #include "reconcile/audit_log.hpp"
 #include "reconcile/checksum.hpp"
+#include "reconcile/reconciler.hpp"
 #include "reconcile/record.hpp"
+
+#include <cstdint>
+#include <gtest/gtest.h>
+#include <string>
+#include <vector>
 
 namespace {
 
@@ -25,7 +23,7 @@ reconcile::InventoryRecord make(const std::string& sku, std::int64_t version,
     return record;
 }
 
-}  // namespace
+} // namespace
 
 TEST(Reconciler, SingleRecordIsAccepted) {
     const std::vector<reconcile::InventoryRecord> input = {make("SKU-1", 1, "SYS-A", 10)};
@@ -72,7 +70,7 @@ TEST(Reconciler, ConflictResolutionIsOrderIndependent) {
 }
 
 TEST(Reconciler, InvalidRecordIsRejected) {
-    reconcile::InventoryRecord bad;  // empty sku, unknown unit, etc.
+    reconcile::InventoryRecord bad; // empty sku, unknown unit, etc.
     bad.quantity = -5;
     bad.checksum = reconcile::compute_checksum(bad);
     const std::vector<reconcile::InventoryRecord> input = {bad};
@@ -87,7 +85,7 @@ TEST(Reconciler, InvalidRecordIsRejected) {
 
 TEST(Reconciler, ChecksumMismatchIsRejected) {
     reconcile::InventoryRecord record = make("SKU-1", 1, "SYS-A", 10);
-    record.checksum += 1U;  // corrupt after computing
+    record.checksum += 1U; // corrupt after computing
     const std::vector<reconcile::InventoryRecord> input = {record};
 
     reconcile::AuditLog audit;
@@ -98,9 +96,8 @@ TEST(Reconciler, ChecksumMismatchIsRejected) {
 }
 
 TEST(Reconciler, OutputIsSortedBySku) {
-    const std::vector<reconcile::InventoryRecord> input = {make("SKU-3", 1, "SYS-A", 1),
-                                                           make("SKU-1", 1, "SYS-A", 1),
-                                                           make("SKU-2", 1, "SYS-A", 1)};
+    const std::vector<reconcile::InventoryRecord> input = {
+        make("SKU-3", 1, "SYS-A", 1), make("SKU-1", 1, "SYS-A", 1), make("SKU-2", 1, "SYS-A", 1)};
     reconcile::AuditLog audit;
     const reconcile::Reconciler reconciler;
     const auto report = reconciler.reconcile(input, audit);

@@ -6,7 +6,7 @@ namespace reconcile {
 namespace {
 constexpr std::uint32_t kFnvOffsetBasis = 2166136261U;
 constexpr std::uint32_t kFnvPrime = 16777619U;
-}  // namespace
+} // namespace
 
 std::uint32_t fnv1a(const std::string& data) {
     std::uint32_t hash = kFnvOffsetBasis;
@@ -37,4 +37,4 @@ bool verify_checksum(const InventoryRecord& record) {
     return record.checksum == compute_checksum(record);
 }
 
-}  // namespace reconcile
+} // namespace reconcile

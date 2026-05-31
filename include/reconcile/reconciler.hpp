@@ -1,12 +1,12 @@
 #ifndef RECONCILE_RECONCILER_HPP
 #define RECONCILE_RECONCILER_HPP
 
-#include <cstddef>
-#include <vector>
-
 #include "reconcile/audit_log.hpp"
 #include "reconcile/record.hpp"
 #include "reconcile/schema.hpp"
+
+#include <cstddef>
+#include <vector>
 
 namespace reconcile {
 
@@ -17,7 +17,7 @@ struct ReconcileOptions {
 
 /// The outcome of a reconciliation pass.
 struct ReconcileReport {
-    std::vector<InventoryRecord> reconciled;  // final records, sorted by SKU
+    std::vector<InventoryRecord> reconciled; // final records, sorted by SKU
     std::size_t accepted{0};
     std::size_t rejected{0};
     std::size_t conflicts{0};
@@ -39,6 +39,6 @@ private:
     SchemaValidator validator_;
 };
 
-}  // namespace reconcile
+} // namespace reconcile
 
-#endif  // RECONCILE_RECONCILER_HPP
+#endif // RECONCILE_RECONCILER_HPP

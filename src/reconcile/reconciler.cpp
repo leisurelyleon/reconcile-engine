@@ -1,9 +1,9 @@
 #include "reconcile/reconciler.hpp"
 
+#include "reconcile/checksum.hpp"
+
 #include <map>
 #include <string>
-
-#include "reconcile/checksum.hpp"
 
 namespace reconcile {
 namespace {
@@ -23,7 +23,7 @@ bool wins_conflict(const InventoryRecord& incoming, const InventoryRecord& incum
     return signature(incoming) > signature(incumbent);
 }
 
-}  // namespace
+} // namespace
 
 Reconciler::Reconciler(ReconcileOptions options) : options_(options) {}
 
@@ -80,4 +80,4 @@ ReconcileReport Reconciler::reconcile(const std::vector<InventoryRecord>& record
     return report;
 }
 
-}  // namespace reconcile
+} // namespace reconcile

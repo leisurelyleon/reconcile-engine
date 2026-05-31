@@ -47,4 +47,4 @@ Result<InventoryRecord> SchemaValidator::validate_strict(const InventoryRecord& 
     return Result<InventoryRecord>::err(combined);
 }
 
-}  // namespace reconcile
+} // namespace reconcile

@@ -1,7 +1,6 @@
 #include "reconcile/audit_log.hpp"
 
 #include <gtest/gtest.h>
-
 #include <string>
 
 TEST(AuditLog, AppendAssignsSequentialNumbers) {

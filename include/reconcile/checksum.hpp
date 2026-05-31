@@ -1,10 +1,10 @@
 #ifndef RECONCILE_CHECKSUM_HPP
 #define RECONCILE_CHECKSUM_HPP
 
+#include "reconcile/record.hpp"
+
 #include <cstdint>
 #include <string>
-
-#include "reconcile/record.hpp"
 
 namespace reconcile {
 
@@ -18,6 +18,6 @@ namespace reconcile {
 /// FNV-1a 32-bit hash of an arbitrary string (utility).
 [[nodiscard]] std::uint32_t fnv1a(const std::string& data);
 
-}  // namespace reconcile
+} // namespace reconcile
 
-#endif  // RECONCILE_CHECKSUM_HPP
+#endif // RECONCILE_CHECKSUM_HPP

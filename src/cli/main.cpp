@@ -1,14 +1,14 @@
+#include "reconcile/audit_log.hpp"
+#include "reconcile/checksum.hpp"
+#include "reconcile/reconciler.hpp"
+#include "reconcile/record.hpp"
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
 #include <vector>
-
-#include "reconcile/audit_log.hpp"
-#include "reconcile/checksum.hpp"
-#include "reconcile/record.hpp"
-#include "reconcile/reconciler.hpp"
 
 namespace {
 
@@ -52,7 +52,7 @@ std::vector<reconcile::InventoryRecord> load_csv(const std::string& path) {
         if (first_line) {
             first_line = false;
             if (line.find("sku") != std::string::npos) {
-                continue;  // skip an optional header row
+                continue; // skip an optional header row
             }
         }
 
@@ -87,7 +87,7 @@ std::vector<reconcile::InventoryRecord> load_csv(const std::string& path) {
     return records;
 }
 
-}  // namespace
+} // namespace
 
 int main(int argc, char** argv) {
     if (argc < 2) {

@@ -1,8 +1,7 @@
 #include "reconcile/checksum.hpp"
+#include "reconcile/record.hpp"
 
 #include <gtest/gtest.h>
-
-#include "reconcile/record.hpp"
 
 namespace {
 
@@ -17,7 +16,7 @@ reconcile::InventoryRecord make_record() {
     return record;
 }
 
-}  // namespace
+} // namespace
 
 TEST(Checksum, IsDeterministic) {
     EXPECT_EQ(reconcile::compute_checksum(make_record()),
@@ -36,7 +35,7 @@ TEST(Checksum, VerifyDetectsMismatch) {
     record.checksum = reconcile::compute_checksum(record);
     EXPECT_TRUE(reconcile::verify_checksum(record));
 
-    record.checksum += 1U;  // simulate corruption
+    record.checksum += 1U; // simulate corruption
     EXPECT_FALSE(reconcile::verify_checksum(record));
 }
 

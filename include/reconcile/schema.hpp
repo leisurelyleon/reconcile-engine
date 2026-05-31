@@ -1,11 +1,11 @@
 #ifndef RECONCILE_SCHEMA_HPP
 #define RECONCILE_SCHEMA_HPP
 
-#include <string>
-#include <vector>
-
 #include "reconcile/record.hpp"
 #include "reconcile/result.hpp"
+
+#include <string>
+#include <vector>
 
 namespace reconcile {
 
@@ -30,6 +30,6 @@ public:
     [[nodiscard]] Result<InventoryRecord> validate_strict(const InventoryRecord& record) const;
 };
 
-}  // namespace reconcile
+} // namespace reconcile
 
-#endif  // RECONCILE_SCHEMA_HPP
+#endif // RECONCILE_SCHEMA_HPP
