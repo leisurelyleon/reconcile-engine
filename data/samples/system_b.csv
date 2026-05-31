@@ -1,0 +1,5 @@
+sku,quantity,unit,location,source,version
+SKU-1001,55,EACH,BAY-B1,SYS-B,7
+SKU-1002,12,BOX,BAY-A2,SYS-B,1
+SKU-1005,30,BOX,BAY-B5,SYS-B,2
+SKU-1006,-3,EACH,BAY-B6,SYS-B,1
